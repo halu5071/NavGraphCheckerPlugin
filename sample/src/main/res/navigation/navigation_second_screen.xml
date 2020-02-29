@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/navigation_second_screen">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_second_screen"
+    app:startDestination="@id/fragment_second_A">
 
-    <fragment android:name="io.moatwel.android.plugin.navigation.first.SecondAFragment" />
-    <fragment android:name="io.moatwel.android.plugin.navigation.first.SecondBFragment" />
-    <!-- Dummy -->
     <fragment
-        android:id="@+id/hogehoge"/>
+        android:id="@+id/fragment_second_A"
+        android:name="io.moatwel.android.plugin.navigation.first.SecondAFragment">
+
+        <action
+            android:id="@+id/action_second_A_to_second_B"
+            app:destination="@+id/fragment_second_B" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_second_B"
+        android:name="io.moatwel.android.plugin.navigation.first.SecondBFragment" />
+
+    <!-- Dummy -->
+    <fragment android:id="@+id/hogehoge" />
+
 </navigation>
