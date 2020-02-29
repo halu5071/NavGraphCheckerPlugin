@@ -31,16 +31,16 @@ class NavigationToolsPluginTest {
     @Test
     fun test() {
         writeFile(settingsFile, "rootProject.name = 'hello-world'")
-        val buildFileContent = "task helloWorld {" +
-                "    doLast {" +
-                "        println 'Hello world!'" +
-                "    }" +
-                "}"
+        val buildFileContent = """
+            plugins {
+                id 'io.moatwel.android.plugin.navigation-tools'
+            }
+        """.trimIndent()
         writeFile(buildFile, buildFileContent)
 
         val result = GradleRunner.create()
             .withProjectDir(testProjectDir.root)
-            .withArguments("helloWorld")
+//            .withArguments("helloWorld")
             .build()
 
         assertTrue(result.output.contains("Hello world!"))

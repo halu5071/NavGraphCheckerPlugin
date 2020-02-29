@@ -6,8 +6,12 @@ import org.gradle.api.Project
 
 class NavigationToolsPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-
+        project.extensions.create(
+            NavigationToolsPluginExtension.NAME,
+            NavigationToolsPluginExtension::class.java
+        )
         val checkNavGraphTask = CheckNavGraph.register(project)
-        project.getTasksByName("build", false)
+        println("task: $checkNavGraphTask")
+        project.tasks.getByName("build")
     }
 }

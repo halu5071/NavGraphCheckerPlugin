@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigation_second_screen">
+
+    <fragment android:name="io.moatwel.android.plugin.navigation.second.SecondAFragment" />
+    <fragment android:name="io.moatwel.android.plugin.navigation.second.SecondBFragment" />
+    <!-- Dummy -->
+    <fragment
+        android:id="@+id/hogehoge"/>
+</navigation>
