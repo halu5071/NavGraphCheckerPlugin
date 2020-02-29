@@ -16,6 +16,8 @@ import javax.xml.parsers.SAXParserFactory
 
 object CheckNavGraph {
 
+    private const val TASK_GROUP = "navigation-tools"
+
     private const val ELEMENT_FRAGMENT = "fragment"
     private const val ELEMENT_FRAGMENT_NAME = "android:name"
 
@@ -25,23 +27,26 @@ object CheckNavGraph {
     private const val DIR_NAME_NAVIGATION = "navigation"
 
     fun register(project: Project): Task {
-        return project.task("checkNavGraph").doLast {
-            val fragmentList = createNavFragments(project)
+        return project.task("checkNavGraph"){ task ->
+            task.group = TASK_GROUP
+            task.doLast {
+                val fragmentList = createNavFragments(project)
 
-            val srcPackageList = findSrcFiles(project).map { it.toPackage(project.mainDir) }
+                val srcPackageList = findSrcFiles(project).map { it.toPackage(project.mainDir) }
 
-            val result = mutableListOf<NavigationFragment>()
-            fragmentList.forEach {
-                val isExist = srcPackageList.contains(it.fragmentName)
-                if (isExist.not()) {
-                    result.add(it)
+                val result = mutableListOf<NavigationFragment>()
+                fragmentList.forEach {
+                    val isExist = srcPackageList.contains(it.fragmentName)
+                    if (isExist.not()) {
+                        result.add(it)
+                    }
                 }
-            }
 
-            if (result.isNotEmpty()) {
-                throw IllegalNavGraphException("Error in NavGraph. " +
-                        "${result.map { it.xmlFile.name }.toSet()}" +
-                        "")
+                if (result.isNotEmpty()) {
+                    throw IllegalNavGraphException("Error in NavGraph. " +
+                            "${result.map { it.xmlFile.name }.toSet()}" +
+                            "")
+                }
             }
         }
     }
