@@ -20,7 +20,7 @@ buildscript {
 
     }
     dependencies {
-        classpath "io.moatwel.android.plugin.navigation-tools:0.1.0-alpha"
+        classpath "io.moatwel.android.plugin:navigation-tools:1.0.0-SNAPSHOT"
     }
 }
 ```
@@ -50,6 +50,11 @@ in Android Studio, error shown like below.
 
 ## Sample
 Clone this repo and check out the [sample](https://github.com/halu5071/NavGraphCheckerPlugin/tree/master/sample) module.
+
+## How to build
+- 1. Clone this repo.
+- 2. Edit code
+- 3. ./gradlew install
 
 ## Author
 - Yasunori Horii
