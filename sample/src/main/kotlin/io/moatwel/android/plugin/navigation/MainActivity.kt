@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import io.moatwel.android.plugin.navigation.first.FirstActivity
 import io.moatwel.android.plugin.navigation.second.SecondActivity
+import io.moatwel.android.plugin.navigation.third.ThirdActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.move_to_second).setOnClickListener {
             SecondActivity.start(this)
+        }
+
+        findViewById<TextView>(R.id.move_to_third).setOnClickListener {
+            ThirdActivity.start(this)
         }
     }
 }
