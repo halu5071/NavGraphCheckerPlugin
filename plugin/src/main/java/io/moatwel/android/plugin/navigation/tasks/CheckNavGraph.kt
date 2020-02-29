@@ -1,6 +1,7 @@
 package io.moatwel.android.plugin.navigation.tasks
 
 import io.moatwel.android.plugin.navigation.data.NavigationFragment
+import io.moatwel.android.plugin.navigation.exception.IllegalNavGraphException
 import io.moatwel.android.plugin.navigation.ext.mainDir
 import io.moatwel.android.plugin.navigation.ext.resourceDir
 import io.moatwel.android.plugin.navigation.ext.toPackage
@@ -17,16 +18,29 @@ object CheckNavGraph {
 
     private const val ELEMENT_FRAGMENT = "fragment"
     private const val ELEMENT_FRAGMENT_NAME = "android:name"
+
     private const val EXTENSION_JAVA = "java"
     private const val EXTENSION_KOTLIN = "kt"
+
     private const val DIR_NAME_NAVIGATION = "navigation"
 
     fun register(project: Project): Task {
         return project.task("checkNavGraph").doLast {
             val fragmentList = createNavFragments(project)
 
-            val srcFileList = findSrcFiles(project)
-            val srcPackageList = srcFileList.map { it.toPackage(project.mainDir) }
+            val srcPackageList = findSrcFiles(project).map { it.toPackage(project.mainDir) }
+
+            val result = mutableListOf<NavigationFragment>()
+            fragmentList.forEach {
+                val isExist = srcPackageList.contains(it.fragmentName)
+                if (isExist.not()) {
+                    result.add(it)
+                }
+            }
+
+            if (result.isNotEmpty()) {
+                throw IllegalNavGraphException("Error in NavGraph. ${result[0].xmlFile.name}")
+            }
 
             fragmentList.forEach {
                 println("Xml File: ${it.xmlFile.name}, Fragment: ${it.fragmentName}")
