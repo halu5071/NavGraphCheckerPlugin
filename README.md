@@ -2,9 +2,9 @@
 ![NavGraphCheckerPlugin](./assets/NavGraphCheckerPlugin.png)
 
 ## What's NavGraphCheckerPlugin?
-NavGraphCheckerPlugin is a gradle plugin for checking NavGraph correctness at compile time.
+NavGraphCheckerPlugin is a gradle plugin for checking navigation graph **at compile time**.
 
-Even when there are some mistakes in navigation graph, you can compile and build your project. Then you will notice the mistake only when you launch a screen which use the problematic navigation graph.
+Even if there are some mistakes in navigation graph, now you can compile and build your project. Then you will notice the mistake only when you launch a screen which use the problematic navigation graph.
 
 ![](./assets/wrong_destination.png)
 
@@ -36,12 +36,8 @@ android {
 }
 ```
 
-When you wanna check NavGraph, run below command.
-```shell
-$./gradlew checkNavGraph
-```
-
-If there is some error in NavGraph, a below error has come.
+## At Compile Time
+If there is some error in navigation graph, a below error has come.
 
 ```shell
 Execution failed for task ':sample:checkNavGraph'.
@@ -51,6 +47,9 @@ Execution failed for task ':sample:checkNavGraph'.
 in Android Studio, error shown like below.
 
 ![](./assets/build_error.png)
+
+## Sample
+Clone this repo and check out the [sample](https://github.com/halu5071/NavGraphCheckerPlugin/tree/master/sample) module.
 
 ## Author
 - Yasunori Horii
