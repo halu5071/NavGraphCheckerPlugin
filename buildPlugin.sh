@@ -1,2 +1,2 @@
 #!/bin/bash
-./gradlew plugin:clean plugin:jar app:checkNavGraph --stacktrace
+./gradlew plugin:clean plugin:jar sample:checkNavGraph --stacktrace

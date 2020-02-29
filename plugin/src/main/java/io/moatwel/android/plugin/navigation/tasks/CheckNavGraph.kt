@@ -39,7 +39,9 @@ object CheckNavGraph {
             }
 
             if (result.isNotEmpty()) {
-                throw IllegalNavGraphException("Error in NavGraph. ${result[0].xmlFile.name}")
+                throw IllegalNavGraphException("Error in NavGraph. " +
+                        "${result.map { it.xmlFile.name }.toSet()}" +
+                        "")
             }
         }
     }
