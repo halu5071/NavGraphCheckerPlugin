@@ -2,6 +2,7 @@ package io.moatwel.android.plugin.navigation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import io.moatwel.android.plugin.navigation.R
 
 class MainActivity : AppCompatActivity() {
 

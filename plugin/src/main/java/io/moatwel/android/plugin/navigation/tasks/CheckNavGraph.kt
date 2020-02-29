@@ -41,14 +41,6 @@ object CheckNavGraph {
             if (result.isNotEmpty()) {
                 throw IllegalNavGraphException("Error in NavGraph. ${result[0].xmlFile.name}")
             }
-
-            fragmentList.forEach {
-                println("Xml File: ${it.xmlFile.name}, Fragment: ${it.fragmentName}")
-            }
-
-            srcPackageList.forEach {
-                println("File with package: $it")
-            }
         }
     }
 

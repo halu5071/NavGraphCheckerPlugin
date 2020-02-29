@@ -1,4 +1,4 @@
-package io.moatwel.android.plugin.navigation
+package io.moatwel.android.plugin.navigation.second
 
 import androidx.appcompat.app.AppCompatActivity
 
