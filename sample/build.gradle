@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-//apply plugin: 'io.moatwel.android.plugin.navigation-tools'
+apply plugin: 'io.moatwel.android.plugin.navigation-tools'
 
 android {
     compileSdkVersion 29
