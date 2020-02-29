@@ -6,6 +6,10 @@ import org.gradle.api.Project
 
 class NavigationToolsPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        CheckNavGraph.register(project)
+        val checkNavGraphTask = CheckNavGraph.register(project)
+        project.afterEvaluate {
+            it.tasks.filter { task -> task.name.contains("compile") }
+                .forEach { task -> task.finalizedBy(checkNavGraphTask) }
+        }
     }
 }
