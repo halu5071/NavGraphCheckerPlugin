@@ -4,6 +4,7 @@
     android:id="@+id/navigation_second_screen"
     app:startDestination="@id/fragment_second_A">
 
+    <!-- Ooooops!!! These definitions of destination are wrong!! -->
     <fragment
         android:id="@+id/fragment_second_A"
         android:name="io.moatwel.android.plugin.navigation.first.SecondAFragment">
