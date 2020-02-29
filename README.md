@@ -25,7 +25,7 @@ buildscript {
 }
 ```
 
-```
+```build.gradle
 apply plugin: 'com.android.application'
 apply plugin: 'io.moatwel.android.plugin.navigation-tools'
 
@@ -47,6 +47,10 @@ If there is some error in NavGraph, a below error has come.
 Execution failed for task ':sample:checkNavGraph'.
 > Error in NavGraph. [navigation_third_screen.xml, navigation_second_screen.xml]
 ```
+
+in Android Studio, error shown like below.
+
+![](./assets/build_error.png)
 
 ## Author
 - Yasunori Horii
