@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_tfa_method"
+    app:startDestination="@id/fragment_first_A">
+
+    <fragment
+        android:id="@+id/fragment_first_A"
+        android:name="io.moatwel.android.plugin.navigation.first.FirstAFragment"
+        android:label="FirstA">
+
+        <action
+            android:id="@+id/action_first_A_to_first_B"
+            app:destination="@id/fragment_first_B" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_first_B"
+        android:name="io.moatwel.android.plugin.navigation.first.FirstBFragment"
+        android:label="FirstB" />
+
+</navigation>
