@@ -14,24 +14,20 @@ Even if there are some mistakes in navigation graph, now you can compile and bui
 ```build.gradle
 buildscript {
     repositories {
-        mavenCentral()
-        google()
-        jcenter()
-
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath "io.moatwel.android.plugin:navigation-tools:1.0.0-SNAPSHOT"
+        classpath "gradle.plugin.io.moatwel.android.plugin:plugin:1.0.0-SNAPSHOT"
     }
 }
 ```
 
 ```build.gradle
-apply plugin: 'com.android.application'
 apply plugin: 'io.moatwel.android.plugin.navigation-tools'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
     ...
 }
 ```
@@ -52,9 +48,9 @@ in Android Studio, error shown like below.
 Clone this repo and check out the [sample](https://github.com/halu5071/NavGraphCheckerPlugin/tree/master/sample) module.
 
 ## How to build
-- 1. Clone this repo.
-- 2. Edit code
-- 3. ./gradlew install
+1. Clone this repo.
+2. Edit code
+3. ./gradlew install
 
 ## Author
 - Yasunori Horii
